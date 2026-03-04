@@ -1,4 +1,23 @@
 .header {
   display: flex;
   flex-direction: column;
+  padding: 16px;
+}
+
+table, th, td {
+  border-bottom: 1px solid rgb(174, 174, 174);
+  border-collapse: collapse;
+  }
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  }
+
+th {
+  background-color: lightgray;
+}
+
+p {
+  margin-bottom: 16px;
 }
