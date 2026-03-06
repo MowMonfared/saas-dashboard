@@ -3,7 +3,7 @@ import { rowsData } from '../data/rows.js';
 
 export function HomePage() {
   return (
-    <div className="header">
+    <div className="layout">
       <h1>IT Dashboard</h1>
       <p className="read-the-docs">
         Here are summary of the IT dashboard, including system status,
