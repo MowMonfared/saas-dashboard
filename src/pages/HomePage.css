@@ -93,14 +93,17 @@
   background-color:white;
   border: 2px dashed #d2d7de;
   cursor: pointer;
+  color: rgb(77, 77, 77);
+  font-size: 14px;
 }
 
 .add-dep:hover {
   background-color: #f0f2f5;
 }
 
-.dep-icon{
+.dep-icon, .card-icon{
   width: 16px;
+  margin-right: 4px;
 }
 
 .inventory {
@@ -115,5 +118,45 @@
   padding: 12px;
 }
 
+.stats {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 16px;
+  gap: 8px;
 
+}
 
+.tables {
+  height: 100%;
+  border: 1px solid #d2d7de;
+  background-color: rgba(255, 255, 255, 0.783);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid #d2d7de;
+  background-color: rgba(255, 255, 255, 0.783);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.card-header {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.card-label {
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.card-value {
+  font-size: 16px;
+  font-weight: 400;
+}

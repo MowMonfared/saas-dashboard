@@ -1,7 +1,15 @@
 import './HomePage.css';
-import logo from '../assets/logo.png';
-import plus from '../assets/plus.svg';
-import chevrondown from '../assets/chevron-down.svg';
+import { logo, plus, chevronDown } from '../assets';
+import { Archive, Box, CircleCheckBig, Wrench } from 'lucide-react';
+
+function MyComponent() {
+  return (
+    <div>
+      <Plus />
+      <ChevronDown />
+    </div>
+  );
+}
 //import { rowsData } from '../data/rows.js';
 //import { PageContent } from '../components/PageContent.js';
 
@@ -23,7 +31,7 @@ export function HomePage() {
         <div className="sidebar">
           <div className="dep">
             <div className="dep-name"> Departments</div>
-            <img src={chevrondown} className="dep-icon" />
+            <img src={chevronDown} className="dep-icon" />
           </div>
           <div className="dep-selected">
             <div className="dep-name">All Departments</div>
@@ -54,7 +62,39 @@ export function HomePage() {
             <div className="dep-number">5</div>
           </div>
         </div>
-        <div className="maincontent">Main content</div>
+        <div className="maincontent">
+          <div className="stats">
+            <div className="card">
+              <div className="card-header">
+                <div className="card-label">Total Assets</div>
+                <Box className="card-icon" />
+              </div>
+              <div className="card-value">16</div>
+            </div>
+            <div className="card">
+              <div className="card-header">
+                <div className="card-label">Active</div>
+                <CircleCheckBig className="card-icon" />
+              </div>
+              <div className="card-value">12</div>
+            </div>
+            <div className="card">
+              <div className="card-header">
+                <div className="card-label">In Repair</div>
+                <Wrench className="card-icon" />
+              </div>
+              <div className="card-value">3</div>
+            </div>
+            <div className="card">
+              <div className="card-header">
+                <div className="card-label">Retired</div>
+                <Archive className="card-icon" />
+              </div>
+              <div className="card-value">1</div>
+            </div>
+          </div>
+          <div className="tables">Filters & Table</div>
+        </div>
       </div>
     </div>
   );
