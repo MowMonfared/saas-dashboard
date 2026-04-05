@@ -101,10 +101,11 @@
   background-color: #f0f2f5;
 }
 
-.dep-icon, .card-icon{
+.dep-icon, .card-icon, .search-icon , .add-icon{
   width: 16px;
   margin-right: 4px;
 }
+
 
 .inventory {
   margin-top: 32px;
@@ -128,11 +129,7 @@
 
 .tables {
   height: 100%;
-  border: 1px solid #d2d7de;
-  background-color: rgba(255, 255, 255, 0.783);
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .card {
@@ -159,4 +156,93 @@
 .card-value {
   font-size: 16px;
   font-weight: 400;
+}
+
+.filters {
+  display: flex;
+  flex: 1;
+  height: fit-content;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 8px;
+}
+
+.search-bar {
+  height: 36px;
+  border: 1px solid #ccc;
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  padding: 0px 4px;
+  display: flex;  
+  align-items: center;
+}
+
+.search-bar:focus-within {
+  outline: 2px solid #0066ff;
+  outline-offset: 2px;
+}
+
+.search-bar-inside {
+  border: none;
+  outline: none;
+  flex: 1;
+  background-color: transparent;
+}
+
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+select {
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,..."); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  height: 36px;
+  padding: 8px 36px 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+select:focus {
+  outline: 2px solid #0066ff; /* Visible focus ring — critical for a11y */
+  outline-offset: 2px;
+}
+
+.add-device {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(37, 37, 37);
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px 16px;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.add-device:hover {
+  background-color:rgb(77, 77, 77);
+}
+
+.top-table {
+  display: flex;
+  flex: 1;
+  height: fit-content;
+  align-items: flex-end;
+  gap: 8px;
 }

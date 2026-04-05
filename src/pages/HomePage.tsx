@@ -1,6 +1,13 @@
 import './HomePage.css';
 import { logo, plus, chevronDown } from '../assets';
-import { Archive, Box, CircleCheckBig, Wrench } from 'lucide-react';
+import {
+  Archive,
+  Box,
+  CircleCheckBig,
+  Search,
+  Wrench,
+  Plus,
+} from 'lucide-react';
 
 function MyComponent() {
   return (
@@ -93,7 +100,48 @@ export function HomePage() {
               <div className="card-value">1</div>
             </div>
           </div>
-          <div className="tables">Filters & Table</div>
+          <div className="tables">
+            <div className="top-table">
+              <div className="filters">
+                <div className="search-bar">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    className="search-bar-inside"
+                  />
+                  <Search className="search-icon" />
+                </div>
+                <div className="dropdown">
+                  <label for="status">Status</label>
+                  <select id="status" name="status">
+                    <option value="" disabled selected>
+                      Select an Status
+                    </option>
+                    <option value="show-all">Show All</option>
+                    <option value="active">Active</option>
+                    <option value="in-repair">In Repair</option>
+                    <option value="retired">Retired</option>
+                  </select>
+                </div>
+                <div className="dropdown">
+                  <label for="status">Type</label>
+                  <select id="status" name="status">
+                    <option value="" disabled selected>
+                      Select a Type
+                    </option>
+                    <option value="show-all">Show All</option>
+                    <option value="active">Lap Top</option>
+                    <option value="in-repair">Mobile</option>
+                    <option value="retired">Tablet</option>
+                  </select>
+                </div>
+              </div>
+              <button className="add-device">
+                <Plus className="add-icon" />
+                Add Device
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
