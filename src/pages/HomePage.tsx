@@ -141,6 +141,42 @@ export function HomePage() {
                 Add Device
               </button>
             </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Devices</th>
+                  <th>Types</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Aisha Okonjo</td>
+                  <td>2</td>
+                  <td>Laptop, Mobile</td>
+                  <td>Acive</td>
+                </tr>
+                <tr>
+                  <td>Felix Braun</td>
+                  <td>5</td>
+                  <td>2 Laptop, 3 Mobile</td>
+                  <td>Acive</td>
+                </tr>
+                <tr>
+                  <td>Jordan Park</td>
+                  <td>3</td>
+                  <td>2 Laptop, 1 Tablet</td>
+                  <td>In Repair</td>
+                </tr>
+                <tr>
+                  <td>Marcus Webb</td>
+                  <td>1</td>
+                  <td>Tablet</td>
+                  <td>Retired</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
