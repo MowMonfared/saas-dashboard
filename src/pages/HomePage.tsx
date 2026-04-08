@@ -7,6 +7,7 @@ import {
   Search,
   Wrench,
   Plus,
+  TriangleAlert,
 } from 'lucide-react';
 
 function MyComponent() {
@@ -76,28 +77,35 @@ export function HomePage() {
                 <div className="card-label">Total Assets</div>
                 <Box className="card-icon" />
               </div>
-              <div className="card-value">16</div>
+              <div className="card-value">4</div>
+            </div>
+            <div className="card">
+              <div className="card-header">
+                <div className="card-label">Overdue</div>
+                <TriangleAlert className="card-icon" />
+              </div>
+              <div className="card-value">1</div>
             </div>
             <div className="card">
               <div className="card-header">
                 <div className="card-label">Active</div>
                 <CircleCheckBig className="card-icon" />
               </div>
-              <div className="card-value">12</div>
+              <div className="card-value">2</div>
             </div>
             <div className="card">
               <div className="card-header">
                 <div className="card-label">In Repair</div>
                 <Wrench className="card-icon" />
               </div>
-              <div className="card-value">3</div>
+              <div className="card-value">1</div>
             </div>
             <div className="card">
               <div className="card-header">
                 <div className="card-label">Retired</div>
                 <Archive className="card-icon" />
               </div>
-              <div className="card-value">1</div>
+              <div className="card-value">0</div>
             </div>
           </div>
           <div className="tables">
@@ -121,6 +129,7 @@ export function HomePage() {
                     <option value="active">Active</option>
                     <option value="in-repair">In Repair</option>
                     <option value="retired">Retired</option>
+                    <option value="overdue">Overdue</option>
                   </select>
                 </div>
                 <div className="dropdown">
@@ -173,7 +182,7 @@ export function HomePage() {
                   <td>Marcus Webb</td>
                   <td>1</td>
                   <td>Tablet</td>
-                  <td>Retired</td>
+                  <td>Overdue</td>
                 </tr>
               </tbody>
             </table>
