@@ -1,5 +1,7 @@
 import './HomePage.css';
-import { logo, plus, chevronDown } from '../assets';
+import { Table } from '../components/Table';
+import { Sidebar } from '../components/Sidebar';
+import { logo } from '../assets';
 import {
   Archive,
   Box,
@@ -8,25 +10,12 @@ import {
   Wrench,
   Plus,
   TriangleAlert,
+  ChevronDown,
 } from 'lucide-react';
-
-function MyComponent() {
-  return (
-    <div>
-      <Plus />
-      <ChevronDown />
-    </div>
-  );
-}
-//import { rowsData } from '../data/rows.js';
-//import { PageContent } from '../components/PageContent.js';
 
 export function HomePage() {
   return (
     <div className="homepage">
-      {/* <Sidebar />
-      <PageContent />
-      */}
       <div className="header">
         <a href="" className="logo-link">
           <img src={logo} alt="Company Logo" className="logo" />
@@ -36,40 +25,7 @@ export function HomePage() {
         <div className="avatar">MM</div>
       </div>
       <div className="content">
-        <div className="sidebar">
-          <div className="dep">
-            <div className="dep-name"> Departments</div>
-            <img src={chevronDown} className="dep-icon" />
-          </div>
-          <div className="dep-selected">
-            <div className="dep-name">All Departments</div>
-            <div className="dep-number">14</div>
-          </div>
-          <div className="dep">
-            <div className="dep-name">Engineering</div>
-            <div className="dep-number">5</div>
-          </div>
-          <div className="dep">
-            <div className="dep-name">Design</div>
-            <div className="dep-number">2</div>
-          </div>
-          <div className="dep">
-            <div className="dep-name">Finance</div>
-            <div className="dep-number">2</div>
-          </div>
-          <div className="dep">
-            <div className="dep-name">HR</div>
-            <div className="dep-number">2</div>
-          </div>
-          <button className="add-dep">
-            <img src={plus} className="dep-icon" />
-            Add Department
-          </button>
-          <div className="dep inventory">
-            <div className="dep-name">Inventory</div>
-            <div className="dep-number">5</div>
-          </div>
-        </div>
+        <Sidebar />
         <div className="maincontent">
           <div className="stats">
             <div className="card">
@@ -129,7 +85,8 @@ export function HomePage() {
                     <option value="active">Active</option>
                     <option value="in-repair">In Repair</option>
                     <option value="retired">Retired</option>
-                    <option value="overdue">Overdue</option>
+                    <option value="overdue">Return Overdue</option>
+                    <option value="overdue">To be Returned soon</option>
                   </select>
                 </div>
                 <div className="dropdown">
@@ -145,47 +102,12 @@ export function HomePage() {
                   </select>
                 </div>
               </div>
-              <button className="add-device">
+              <button className="primaryBtn">
                 <Plus className="add-icon" />
                 Add Device
               </button>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Employee</th>
-                  <th>Devices</th>
-                  <th>Types</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Aisha Okonjo</td>
-                  <td>2</td>
-                  <td>Laptop, Mobile</td>
-                  <td>Acive</td>
-                </tr>
-                <tr>
-                  <td>Felix Braun</td>
-                  <td>5</td>
-                  <td>2 Laptop, 3 Mobile</td>
-                  <td>Acive</td>
-                </tr>
-                <tr>
-                  <td>Jordan Park</td>
-                  <td>3</td>
-                  <td>2 Laptop, 1 Tablet</td>
-                  <td>In Repair</td>
-                </tr>
-                <tr>
-                  <td>Marcus Webb</td>
-                  <td>1</td>
-                  <td>Tablet</td>
-                  <td>Overdue</td>
-                </tr>
-              </tbody>
-            </table>
+            <Table />
           </div>
         </div>
       </div>

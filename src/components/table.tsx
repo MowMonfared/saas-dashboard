@@ -1,24 +1,26 @@
 import './Table.css';
-import { rowsData } from '../data/rows.js';
+import { equipmentData } from '../data/equipmentData';
 
 export function Table() {
   return (
     <table>
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Role</th>
-          <th>Devices</th>
+          <th>Device</th>
+          <th>Model</th>
+          <th>Employee</th>
+          <th>Status</th>
+          <th>Return Date</th>
         </tr>
       </thead>
       <tbody>
-        {rowsData.map((row) => (
-          <tr key={row.id}>
-            <td>{row.id}</td>
-            <td>{row.name}</td>
-            <td>{row.role}</td>
-            <td>{row.devices}</td>
+        {equipmentData.map((equipment) => (
+          <tr key={equipment.id}>
+            <td>{equipment.device}</td>
+            <td>{equipment.model}</td>
+            <td>{equipment.assignee}</td>
+            <td>{equipment.status}</td>
+            <td>{equipment.dueDate}</td>
           </tr>
         ))}
       </tbody>

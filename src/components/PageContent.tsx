@@ -1,5 +1,5 @@
 import './HomePage.css';
-import { rowsData } from '../data/rows.js';
+import { rowsData } from '../data/equipmentData.js';
 import { Table } from './Table.js';
 
 export function PageContent() {
