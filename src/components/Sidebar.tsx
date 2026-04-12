@@ -1,4 +1,3 @@
-import { Plus, ChevronDown } from 'lucide-react';
 import './Sidebar.css';
 import Accordion from './Accordion';
 
