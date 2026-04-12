@@ -1,10 +1,12 @@
+import React, { useState } from 'react';
 import { Plus, ChevronDown } from 'lucide-react';
 import './Sidebar.css';
-import Accordion from './Accordion';
 
-export function Sidebar() {
+export default function Accordion() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="sidebar">
+    <>
       <div className="dep">
         <div className="dep-name"> Departments</div>
         <ChevronDown className="dep-icon" />
@@ -31,13 +33,8 @@ export function Sidebar() {
       </div>
       <button className="add-dep">
         <Plus className="dep-icon" />
-        Add Department
+        Add
       </button>
-      <div className="dep inventory">
-        <div className="dep-name">Inventory</div>
-        <div className="dep-number">5</div>
-      </div>
-      <Accordion />
-    </div>
+    </>
   );
 }
