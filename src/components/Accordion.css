@@ -1,0 +1,44 @@
+
+.dep-selected, .dep, .add-dep {
+  border-radius: 8px;
+  display: flex;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.dep-number {
+  display: flex;
+  width: 20px;
+  justify-content: center;
+}
+.dep-selected {
+  background-color: #e2e8f0;
+}
+
+.dep:hover {
+  background-color: #edf0f5;
+}
+
+.dep-name {
+  flex: 1;
+}
+
+.add-dep {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:white;
+  border: 2px dashed #d2d7de;
+  cursor: pointer;
+  color: rgb(77, 77, 77);
+  font-size: 14px;
+}
+
+.add-dep:hover {
+  background-color: #f0f2f5;
+}
+
+.dep-icon, .card-icon, .search-icon , .add-icon{
+  width: 16px;
+  margin-right: 4px;
+}

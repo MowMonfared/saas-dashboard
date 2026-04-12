@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Plus, ChevronDown, ChevronUp } from 'lucide-react';
-import './Sidebar.css';
+import './Accordion.css';
 
 export default function Accordion() {
   const [isOpen, setIsOpen] = useState(false);
