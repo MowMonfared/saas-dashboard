@@ -2,6 +2,7 @@ import './Sidebar.css';
 import { Accordion } from './Accordion';
 
 export function Sidebar({ selectedDep, setSelectedDep }) {
+  
   return (
     <div className="sidebar">
       <Accordion selectedDep={selectedDep} setSelectedDep={setSelectedDep} />
