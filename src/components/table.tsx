@@ -2,25 +2,24 @@ import './Table.css';
 import { equipmentData } from '../data/equipmentData';
 import { useState } from 'react';
 import { Search, Plus } from 'lucide-react';
+import { Modal } from './Modal';
+import { createPortal } from 'react-dom';
 
 export function Table({ selectedDep, setSelectedDep }) {
   const [status, setStatus] = useState('');
   const [type, setType] = useState('');
   const [search, setSearch] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const filteredDevices = equipmentData.filter((equipment) => {
-    // 1. Department filter
     const matchesDept =
       selectedDep === 'All Departments' || equipment.department === selectedDep;
 
-    // 2. Status filter
     const matchesStatus = !status || equipment.status === status;
 
-    // 3. Type filter
     const matchesType =
       !type || equipment.device.toLowerCase() === type.toLowerCase();
 
-    // 4. Search filter (case-insensitive, across fields)
     const matchesSearch =
       equipment.device.toLowerCase().includes(search.toLowerCase()) ||
       equipment.model.toLowerCase().includes(search.toLowerCase()) ||
@@ -43,6 +42,7 @@ export function Table({ selectedDep, setSelectedDep }) {
             />
             <Search className="search-icon" />
           </div>
+
           <div className="dropdown">
             <label>Status</label>
             <select value={status} onChange={(e) => setStatus(e.target.value)}>
@@ -54,6 +54,7 @@ export function Table({ selectedDep, setSelectedDep }) {
               <option value="To be Returned soon">To be Returned soon</option>
             </select>
           </div>
+
           <div className="dropdown">
             <label>Type</label>
             <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -64,11 +65,13 @@ export function Table({ selectedDep, setSelectedDep }) {
             </select>
           </div>
         </div>
-        <button className="primaryBtn">
+
+        <button className="primaryBtn" onClick={() => setShowModal(true)}>
           <Plus className="add-icon" />
           Add Device
         </button>
       </div>
+
       <table>
         <thead>
           <tr>
@@ -80,19 +83,26 @@ export function Table({ selectedDep, setSelectedDep }) {
             <th>Department</th>
           </tr>
         </thead>
+
         <tbody>
-          {filteredDevices.map((filteredDevice) => (
-            <tr key={filteredDevice.id}>
-              <td>{filteredDevice.device}</td>
-              <td>{filteredDevice.model}</td>
-              <td>{filteredDevice.assignee}</td>
-              <td>{filteredDevice.status}</td>
-              <td>{filteredDevice.dueDate}</td>
-              <td>{filteredDevice.department}</td>
+          {filteredDevices.map((device) => (
+            <tr key={device.id}>
+              <td>{device.device}</td>
+              <td>{device.model}</td>
+              <td>{device.assignee}</td>
+              <td>{device.status}</td>
+              <td>{device.dueDate}</td>
+              <td>{device.department}</td>
             </tr>
           ))}
         </tbody>
       </table>
+
+      {showModal &&
+        createPortal(
+          <Modal setShowModal={setShowModal} />,
+          document.getElementById('overlay-root'),
+        )}
     </div>
   );
 }
