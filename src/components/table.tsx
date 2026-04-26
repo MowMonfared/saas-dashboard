@@ -68,7 +68,7 @@ export function Table({ selectedDep, setSelectedDep }) {
 
         <button className="primaryBtn" onClick={() => setShowModal(true)}>
           <Plus className="add-icon" />
-          Add Device
+          Add
         </button>
       </div>
 
