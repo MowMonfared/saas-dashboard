@@ -1,6 +1,11 @@
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
+import { equipmentData } from '../data/equipmentData';
 
 export function Modal({ setShowModal }) {
+  const [isSelected, setIsSelected] = useState('laptop');
+  const [status, setStatus] = useState('active');
+  const departments = [...new Set(equipmentData.map((e) => e.department))];
   return createPortal(
     // Backdrop
     <div
@@ -14,22 +19,45 @@ export function Modal({ setShowModal }) {
       >
         <div className="flex flex-col flex-1 pb-4">
           <label htmlFor="employee" className="mb-1">
-            Type
+            Device
           </label>
           <div className="flex gap-3 pb-4">
-            <div className="flex flex-col p-4 border-1 border-amber-700 rounded-md bg-amber-100 hover:bg-amber-700 hover:text-amber-100">
+            <div
+              onClick={
+                isSelected !== 'laptop' && (() => setIsSelected('laptop'))
+              }
+              className={`flex flex-col p-4 border-1 ${isSelected === 'laptop' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+            >
               Laptop
             </div>
-            <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+            <div
+              onClick={
+                isSelected !== 'tablet' && (() => setIsSelected('tablet'))
+              }
+              className={`flex flex-col p-4 border-1 ${isSelected === 'tablet' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+            >
               Tablet
             </div>
-            <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+            <div
+              onClick={isSelected !== 'phone' && (() => setIsSelected('phone'))}
+              className={`flex flex-col p-4 border-1 ${isSelected === 'phone' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+            >
               Phone
             </div>
-            <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+            <div
+              onClick={
+                isSelected !== 'keyboard' && (() => setIsSelected('keyboard'))
+              }
+              className={`flex flex-col p-4 border-1 ${isSelected === 'keyboard' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+            >
               Keyboard
             </div>
-            <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+            <div
+              onClick={
+                isSelected !== 'monitor' && (() => setIsSelected('monitor'))
+              }
+              className={`flex flex-col p-4 border-1 ${isSelected === 'monitor' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+            >
               Monitor
             </div>
           </div>
@@ -40,8 +68,8 @@ export function Modal({ setShowModal }) {
             <div>
               <input
                 type="text"
-                id="first-name"
-                name="first-name"
+                id="model"
+                name="model"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -53,8 +81,8 @@ export function Modal({ setShowModal }) {
             <div>
               <input
                 type="text"
-                id="first-name"
-                name="first-name"
+                id="name"
+                name="name"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -65,8 +93,8 @@ export function Modal({ setShowModal }) {
             </label>
             <div>
               <input
-                type="text"
-                id="first-name"
+                type="date"
+                id="date"
                 name="first-name"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
@@ -77,12 +105,13 @@ export function Modal({ setShowModal }) {
               Department
             </label>
             <div>
-              <input
-                type="text"
-                id="first-name"
-                name="first-name"
-                className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-              />
+              <select>
+                {departments.map((department) => (
+                  <option key={department} value={department}>
+                    {department}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="m-2 flex flex-col">
@@ -90,20 +119,37 @@ export function Modal({ setShowModal }) {
               Status
             </label>
             <div className="flex gap-3 pb-4">
-              <div className="flex flex-col p-4 border-1 border-amber-700 rounded-md bg-amber-100 hover:bg-amber-700 hover:text-amber-100">
+              <div
+                onClick={status !== 'active' && (() => setStatus('active'))}
+                className={`flex flex-col p-4 border-1 ${status === 'active' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+              >
                 Active
               </div>
-              <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+              <div
+                onClick={status !== 'repair' && (() => setStatus('repair'))}
+                className={`flex flex-col p-4 border-1 ${status === 'repair' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+              >
                 In Repair
               </div>
-              <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+              <div
+                onClick={status !== 'overdue' && (() => setStatus('overdue'))}
+                className={`flex flex-col p-4 border-1 ${status === 'overdue' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+              >
                 Return Overdue
               </div>
-              <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
-                Retired
-              </div>
-              <div className="flex flex-col p-4 border-1 border-gray-500 rounded-md hover:bg-gray-100">
+              <div
+                onClick={
+                  status !== 'return-soon' && (() => setStatus('return-soon'))
+                }
+                className={`flex flex-col p-4 border-1 ${status === 'return-soon' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+              >
                 To be Returned soon
+              </div>
+              <div
+                onClick={status !== 'retired' && (() => setStatus('retired'))}
+                className={`flex flex-col p-4 border-1 ${status === 'retired' ? 'border-blue-600 rounded-md bg-blue-100' : 'border-gray-500 rounded-md hover:bg-gray-100'}`}
+              >
+                Retired
               </div>
             </div>
           </div>
@@ -120,7 +166,7 @@ export function Modal({ setShowModal }) {
             onClick={() => setShowModal(false)}
             className="bg-black hover:bg-gray-800 text-white px-4 py-2 rounded hover"
           >
-            Add
+            Save
           </button>
         </div>
       </div>
